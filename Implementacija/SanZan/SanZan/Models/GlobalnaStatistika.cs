@@ -9,6 +9,8 @@ namespace SanZan.Models
 {
     public class GlobalnaStatistika
     {
+        [Key]
+        public int ID { get; set; }
         public int brojKorisnika { get; set; }
         public int brojOglasa { get; set; }
         public int brojBanovanihKorisnika { get; set; }

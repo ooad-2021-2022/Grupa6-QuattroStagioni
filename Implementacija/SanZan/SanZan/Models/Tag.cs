@@ -7,7 +7,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SanZan.Models
 {
-    //test 
     public class Tag
     {
         [Key]
