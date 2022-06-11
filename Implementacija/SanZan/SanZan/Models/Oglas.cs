@@ -18,6 +18,8 @@ namespace SanZan.Models
         public int lokacija { get; set; }
         public double ocjena { get; set; }
         public string opis { get; set; }
+
+        [ForeignKey("Status")]
         public int status { get; set; }
     }
 }

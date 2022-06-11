@@ -11,8 +11,8 @@ namespace SanZan.Models
     {
         [Key]
         public int IDLokacije { get; set; }
-        public int IDKantona { get; set; }
-        public int IDGrad { get; set; }
+        public Kanton kanton { get; set; }
+        public Grad grad { get; set; }
         public string adresa { get; set; }
     }
 }

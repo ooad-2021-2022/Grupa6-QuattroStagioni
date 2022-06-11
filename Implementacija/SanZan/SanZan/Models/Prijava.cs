@@ -15,7 +15,7 @@ namespace SanZan.Models
         public int IDPrijavljenog { get; set; }
         [ForeignKey("Korisnik")]
         public int IDZalbenika { get; set; }
-        public int tipPrijava;
+        public TipPrijave tipPrijave { get; set; }
         [ForeignKey("Korisnik")]
         public int IDAdministratora { get; set; }
     }

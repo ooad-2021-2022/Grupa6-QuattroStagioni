@@ -9,12 +9,12 @@ namespace SanZan.Models
 {
     public class Zahtjev
     {
-        [Key, ForeignKey("ZahtjevTagovi")]
+        [Key]
         public int IDZahtjeva { get; set; }
         [ForeignKey("Korisnik")]
         public int IDKlijenta { get; set; }
         public DateTime vrijemeZahtjeva { get; set; }
-        public int djelatnost { get; set; }
+        public Djelatnost djelatnost { get; set; }
         [ForeignKey("Lokacija")]
         public int lokacija { get; set; }
 }

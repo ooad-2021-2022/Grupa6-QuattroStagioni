@@ -10,9 +10,9 @@ namespace SanZan.Models
     //test 
     public class Tag
     {
-        [Key, ForeignKey("ZahtjevTagovi")]
+        [Key]
         public int IDTaga { get; set; }
         public string naziv { get; set; }
-        public int djelatnost { get; set; }
+        public Djelatnost djelatnost { get; set; }
     }
 }

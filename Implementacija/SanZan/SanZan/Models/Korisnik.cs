@@ -21,8 +21,8 @@ namespace SanZan.Models
         [ForeignKey("Lokacija")]
         public int lokacija { get; set; }
         public string nazivRadnje { get; set; }
-        public int tipDjelatnika { get; set; }
-        public int djelatnost { get; set; }
+        public TipDjelatnika tipDjelatnika { get; set; }
+        public Djelatnost djelatnost { get; set; }
 
         public bool banovan { get; set; }
         [ForeignKey("Korisnik")]

@@ -13,7 +13,11 @@ namespace SanZan.Models
         public int IDDjelatnikTagovi { get; set; }
         [ForeignKey("Korisnik")]
         public int IDDjelatnika { get; set; }
+
+        public Korisnik Korisnik { get; set; }
         [ForeignKey("Tag")]
         public int IDTaga { get; set; }
+
+        public Tag Tag { get; set; }
 }
 }

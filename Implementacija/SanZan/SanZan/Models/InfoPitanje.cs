@@ -9,6 +9,7 @@ namespace SanZan.Models
 {
     public class InfoPitanje
     {
+        [Key]
         public int IDPitanja { get; set; }
         public string pitanje { get; set; }
         public string odgovor { get; set; }
