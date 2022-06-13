@@ -13,7 +13,9 @@ namespace SanZan.Models
         public int IDKartice { get; set; }
         [ForeignKey("Korisnik")]
         public int IDVlasnikaKartice { get; set; }
-        public double iznosNaKartici { get; set; }
-        public DateTime datumIzdavanjaKartice { get; set; }
+        [Required]
+        public double IznosNaKartici { get; set; }
+        [Required]
+        public DateTime DatumIzdavanjaKartice { get; set; }
     }
 }

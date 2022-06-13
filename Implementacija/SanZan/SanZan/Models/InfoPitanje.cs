@@ -11,7 +11,9 @@ namespace SanZan.Models
     {
         [Key]
         public int IDPitanja { get; set; }
-        public string pitanje { get; set; }
-        public string odgovor { get; set; }
+        [Required]
+        public string Pitanje { get; set; }
+        [Required]
+        public string Odgovor { get; set; }
     }
 }

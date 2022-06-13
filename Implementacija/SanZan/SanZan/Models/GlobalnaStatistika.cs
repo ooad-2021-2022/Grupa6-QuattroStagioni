@@ -7,13 +7,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SanZan.Models
 {
-    public class GlobalnaStatistika
+    public sealed class GlobalnaStatistika
     {
-        [Key]
-        public int ID { get; set; }
-        public int brojKorisnika { get; set; }
-        public int brojOglasa { get; set; }
-        public int brojBanovanihKorisnika { get; set; }
-        public int brojUspjesnihSaradnji { get; set; }
+        private static GlobalnaStatistika instance = new GlobalnaStatistika();
+        [Display(Name = "Broj korisnika")]
+        public static int BrojKorisnika { get; set; } = 0;
+        [Display(Name = "Broj oglasa")]
+        public static int BrojOglasa { get; set; } = 0;
+        [Display(Name = "Broj banovanih korisnika")]
+        public static int BrojBanovanihKorisnika { get; set; } = 0;
+        [Display(Name = "Broj uspješnih saradnji")]
+        public static int BrojUspjesnihSaradnji { get; set; } = 0;
+
+        private GlobalnaStatistika() { }
+        public static GlobalnaStatistika Instance 
+        {
+            get { return instance; }
+        }
     }
 }

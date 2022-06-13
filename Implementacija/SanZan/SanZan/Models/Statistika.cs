@@ -11,9 +11,15 @@ namespace SanZan.Models
     {
         [Key]
         public int IDDjelatnika { get; set; }
-        public int brojUspjesnihSaradnji { get; set; }
-        public int brojPosjeta { get; set; }
-        public int brojPrijava { get; set; }
-        public int brojUcesca { get; set; }
+        //treba li ovaj atribut ispod
+        public Korisnik Djelatnik { get; set; }
+        [Display(Name = "Broj uspješnih saradnji")]
+        public int BrojUspjesnihSaradnji { get; set; }
+        [Display(Name = "Broj posjeta")]
+        public int BrojPosjeta { get; set; }
+        [Display(Name = "Broj prijava")]
+        public int BrojPrijava { get; set; }
+        [Display(Name = "Broj učešća")]
+        public int BrojUcesca { get; set; }
     }
 }

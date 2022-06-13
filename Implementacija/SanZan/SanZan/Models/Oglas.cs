@@ -13,13 +13,16 @@ namespace SanZan.Models
         public int IDOglasa { get; set; }
         [ForeignKey("Korisnik")]
         public int IDDjelatnika { get; set; }
-        public string nazivShopa { get; set; }
+        [Required]
+        [Display(Name = "Naziv shopa")]
+        public string NazivShopa { get; set; }
         [ForeignKey("Lokacija")]
-        public int lokacija { get; set; }
-        public double ocjena { get; set; }
-        public string opis { get; set; }
-
+        public int LokacijaID { get; set; }
+        public Lokacija Lokacija { get; set; }
+        public double Ocjena { get; set; }
+        [Required]
+        public string Opis { get; set; }
         [ForeignKey("Status")]
-        public int status { get; set; }
+        public int Status { get; set; }
     }
 }

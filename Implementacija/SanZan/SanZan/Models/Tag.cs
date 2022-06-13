@@ -11,7 +11,9 @@ namespace SanZan.Models
     {
         [Key]
         public int IDTaga { get; set; }
-        public string naziv { get; set; }
-        public Djelatnost djelatnost { get; set; }
+        [Required]
+        public string Naziv { get; set; }
+        [EnumDataType(typeof(Djelatnost))]
+        public Djelatnost Djelatnost { get; set; }
     }
 }

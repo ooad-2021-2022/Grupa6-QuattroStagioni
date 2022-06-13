@@ -13,10 +13,15 @@ namespace SanZan.Models
         public int IDRecenzije { get; set; }
         [ForeignKey("Korisnik")]
         public int IDRecenzenta { get; set; }
+        public Korisnik Recenzent { get; set; }
         [ForeignKey("Korisnik")]
         public int IDjelatnika { get; set; }
-        public DateTime vrijeme { get; set; }
-        public int ocjena { get; set; }
-        public string komentar { get; set; }
+        public Korisnik Djelatnik { get; set; }
+        [Required]
+        public DateTime Vrijeme { get; set; }
+        [Required]
+        [Range(1, 5, ErrorMessage = "Ocjene su od 1 do 5!")]
+        public int Ocjena { get; set; }
+        public string Komentar { get; set; }
     }
 }

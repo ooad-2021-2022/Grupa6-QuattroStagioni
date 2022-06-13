@@ -11,8 +11,11 @@ namespace SanZan.Models
     {
         [Key]
         public int IDLokacije { get; set; }
-        public Kanton kanton { get; set; }
-        public Grad grad { get; set; }
-        public string adresa { get; set; }
+        [EnumDataType(typeof(Kanton))]
+        public Kanton Kanton { get; set; }
+        [EnumDataType(typeof(Grad))]
+        public Grad Grad { get; set; } 
+        [RegularExpression(@"([\d\w-\.]+\s)+[\d]+", ErrorMessage = "Adresa se sastoji od imena ulice i broja!")]
+        public string Adresa { get; set; }
     }
 }

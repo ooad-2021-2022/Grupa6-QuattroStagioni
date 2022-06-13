@@ -13,11 +13,9 @@ namespace SanZan.Models
         public int IDZahtjevTagovi { get; set; }
         [ForeignKey("Zahtjev")]
         public int IDZahtjev { get; set; }
-
         public Zahtjev Zahtjev { get; set; }
         [ForeignKey("Tag")]
         public int IDTaga { get; set; }
-
         public Tag Tag { get; set; }
     }
 }

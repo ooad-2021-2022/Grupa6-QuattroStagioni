@@ -10,6 +10,7 @@ namespace SanZan.Models
     {
         [Key]
         public int IDStatus { get; set; }
-        public Markeri marker { get; set; }
+        [EnumDataType(typeof(Markeri))]
+        public Markeri Marker { get; set; }
     }
 }

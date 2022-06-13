@@ -16,6 +16,9 @@ namespace SanZan.Models
         public int IDKlijenta { get; set; }
         [ForeignKey("Korisnik")]
         public int IDDjelatnika { get; set; }
-        public double iznosUplate { get; set; }
+        [Required]
+        [Range(0, double.MaxValue, ErrorMessage = "Iznos uplate mora biti veći od 0")]
+        [Display(Name = "Iznos uplate")]
+        public double IznosUplate { get; set; }
     }
 }

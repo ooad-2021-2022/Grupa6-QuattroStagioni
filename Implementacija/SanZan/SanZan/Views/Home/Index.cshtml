@@ -1,8 +1,59 @@
-﻿@{
+﻿@model SanZan.Models.Korisnik
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table class="table">
+     <thead>
+     <tr>
+     <th>
+     @Html.DisplayNameFor(model => model.KorisnickoIme)
+     </th>
+     <th>
+     @Html.DisplayNameFor(model => model.BrojTelefona)
+     </th>
+     <th></th>
+     </tr>
+     </thead>
+    </table>
+    <form>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="KorisnickoIme" class="control-label"></label>
+            <input asp-for="KorisnickoIme" class="form-control" />
+            <span asp-validation-for="KorisnickoIme" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Ime" class="control-label"></label>
+            <input asp-for="Ime" class="form-control" />
+            <span asp-validation-for="Ime" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Prezime" class="control-label"></label>
+            <input asp-for="Prezime" class="form-control" />
+            <span asp-validation-for="Prezime" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Lozinka" class="control-label"></label>
+            <input asp-for="Lozinka" class="form-control" />
+            <span asp-validation-for="Lozinka" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Djelatnost" class="control-label"></label>
+            <select asp-for="Djelatnost" class="form-control" asp-items="Html.GetEnumSelectList<Djelatnost>()"></select>
+            <span asp-validation-for="Djelatnost" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Lokacija.Adresa" class="control-label"></label>
+            <input asp-for="Lokacija.Adresa" class="form-control" />
+            <span asp-validation-for="Lokacija.Adresa" class="text-danger"></span>
+        </div>
+    </form>
 </div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
