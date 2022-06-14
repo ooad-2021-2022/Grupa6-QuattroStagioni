@@ -18,7 +18,7 @@ namespace SanZan.Models
         [EnumDataType(typeof(Djelatnost))]
         public Djelatnost Djelatnost { get; set; }
         [ForeignKey("Lokacija")]
-        public int LokacijaId { get; set; }
+        public int? IDLokacija { get; set; }
         public Lokacija Lokacija { get; set; }
-}
+    }
 }

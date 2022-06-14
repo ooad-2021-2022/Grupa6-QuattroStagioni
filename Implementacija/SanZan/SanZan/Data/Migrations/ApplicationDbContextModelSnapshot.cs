@@ -232,7 +232,7 @@ namespace SanZan.Data.Migrations
                     b.Property<int>("IDKarticeKlijenta")
                         .HasColumnType("int");
 
-                    b.Property<double>("iznosUplate")
+                    b.Property<double>("IznosUplate")
                         .HasColumnType("float");
 
                     b.HasKey("IDUplate");
@@ -262,30 +262,6 @@ namespace SanZan.Data.Migrations
                     b.ToTable("DjelatnikTagovi");
                 });
 
-            modelBuilder.Entity("SanZan.Models.GlobalnaStatistika", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("brojBanovanihKorisnika")
-                        .HasColumnType("int");
-
-                    b.Property<int>("brojKorisnika")
-                        .HasColumnType("int");
-
-                    b.Property<int>("brojOglasa")
-                        .HasColumnType("int");
-
-                    b.Property<int>("brojUspjesnihSaradnji")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("GlobalnaStatistika");
-                });
-
             modelBuilder.Entity("SanZan.Models.GotovinskaUplata", b =>
                 {
                     b.Property<int>("IDUplate")
@@ -299,7 +275,7 @@ namespace SanZan.Data.Migrations
                     b.Property<int>("IDKlijenta")
                         .HasColumnType("int");
 
-                    b.Property<double>("iznosUplate")
+                    b.Property<double>("IznosUplate")
                         .HasColumnType("float");
 
                     b.HasKey("IDUplate");
@@ -314,10 +290,12 @@ namespace SanZan.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("odgovor")
+                    b.Property<string>("Odgovor")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("pitanje")
+                    b.Property<string>("Pitanje")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IDPitanja");
@@ -332,13 +310,13 @@ namespace SanZan.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("DatumIzdavanjaKartice")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("IDVlasnikaKartice")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("datumIzdavanjaKartice")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("iznosNaKartici")
+                    b.Property<double>("IznosNaKartici")
                         .HasColumnType("float");
 
                     b.HasKey("IDKartice");
@@ -353,7 +331,7 @@ namespace SanZan.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("marker")
+                    b.Property<int>("Marker")
                         .HasColumnType("int");
 
                     b.HasKey("IDStatus");
@@ -368,43 +346,50 @@ namespace SanZan.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Banovan")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("BrojTelefona")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Djelatnost")
+                        .HasColumnType("int");
+
                     b.Property<int>("IDAdministratora")
                         .HasColumnType("int");
 
                     b.Property<int>("IDKartice")
                         .HasColumnType("int");
 
-                    b.Property<bool>("banovan")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("brojTelefona")
+                    b.Property<string>("Ime")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("djelatnost")
+                    b.Property<string>("KorisnickoIme")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("LokacijaId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ime")
+                    b.Property<string>("Lozinka")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("korisnickoIme")
+                    b.Property<string>("NazivRadnje")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("lokacija")
-                        .HasColumnType("int");
-
-                    b.Property<string>("lozinka")
+                    b.Property<string>("Prezime")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("nazivRadnje")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("prezime")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("tipDjelatnika")
+                    b.Property<int>("TipDjelatnika")
                         .HasColumnType("int");
 
                     b.HasKey("IDKorisnika");
+
+                    b.HasIndex("LokacijaId");
 
                     b.ToTable("Korisnik");
                 });
@@ -416,13 +401,13 @@ namespace SanZan.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("adresa")
+                    b.Property<string>("Adresa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("grad")
+                    b.Property<int>("Grad")
                         .HasColumnType("int");
 
-                    b.Property<int>("kanton")
+                    b.Property<int>("Kanton")
                         .HasColumnType("int");
 
                     b.HasKey("IDLokacije");
@@ -437,10 +422,10 @@ namespace SanZan.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("IDModeratora")
+                    b.Property<int?>("IDModeratora")
                         .HasColumnType("int");
 
-                    b.Property<int>("IDOglasa")
+                    b.Property<int?>("IDOglasa")
                         .HasColumnType("int");
 
                     b.HasKey("IDModeratorOglasi");
@@ -462,22 +447,26 @@ namespace SanZan.Data.Migrations
                     b.Property<int>("IDDjelatnika")
                         .HasColumnType("int");
 
-                    b.Property<int>("lokacija")
+                    b.Property<int>("LokacijaID")
                         .HasColumnType("int");
 
-                    b.Property<string>("nazivShopa")
+                    b.Property<string>("NazivShopa")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("ocjena")
+                    b.Property<double>("Ocjena")
                         .HasColumnType("float");
 
-                    b.Property<string>("opis")
+                    b.Property<string>("Opis")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("status")
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("IDOglasa");
+
+                    b.HasIndex("LokacijaID");
 
                     b.ToTable("Oglas");
                 });
@@ -495,13 +484,24 @@ namespace SanZan.Data.Migrations
                     b.Property<int>("IDPrimaoca")
                         .HasColumnType("int");
 
-                    b.Property<string>("sadrzaj")
+                    b.Property<int?>("PosiljaocIDKorisnika")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PrimaocIDKorisnika")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Sadrzaj")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("vrijeme")
+                    b.Property<DateTime>("Vrijeme")
                         .HasColumnType("datetime2");
 
                     b.HasKey("IDPoruke");
+
+                    b.HasIndex("PosiljaocIDKorisnika");
+
+                    b.HasIndex("PrimaocIDKorisnika");
 
                     b.ToTable("Poruka");
                 });
@@ -513,6 +513,9 @@ namespace SanZan.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("AdministratorIDKorisnika")
+                        .HasColumnType("int");
+
                     b.Property<int>("IDAdministratora")
                         .HasColumnType("int");
 
@@ -522,10 +525,22 @@ namespace SanZan.Data.Migrations
                     b.Property<int>("IDZalbenika")
                         .HasColumnType("int");
 
-                    b.Property<int>("tipPrijave")
+                    b.Property<int?>("PrijavljeniIDKorisnika")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipPrijave")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ZalbenikIDKorisnika")
                         .HasColumnType("int");
 
                     b.HasKey("IDPrijave");
+
+                    b.HasIndex("AdministratorIDKorisnika");
+
+                    b.HasIndex("PrijavljeniIDKorisnika");
+
+                    b.HasIndex("ZalbenikIDKorisnika");
 
                     b.ToTable("Prijava");
                 });
@@ -537,22 +552,32 @@ namespace SanZan.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("DjelatnikIDKorisnika")
+                        .HasColumnType("int");
+
                     b.Property<int>("IDRecenzenta")
                         .HasColumnType("int");
 
                     b.Property<int>("IDjelatnika")
                         .HasColumnType("int");
 
-                    b.Property<string>("komentar")
+                    b.Property<string>("Komentar")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ocjena")
+                    b.Property<int>("Ocjena")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("vrijeme")
+                    b.Property<int?>("RecenzentIDKorisnika")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Vrijeme")
                         .HasColumnType("datetime2");
 
                     b.HasKey("IDRecenzije");
+
+                    b.HasIndex("DjelatnikIDKorisnika");
+
+                    b.HasIndex("RecenzentIDKorisnika");
 
                     b.ToTable("Recenzija");
                 });
@@ -564,19 +589,24 @@ namespace SanZan.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("brojPosjeta")
+                    b.Property<int>("BrojPosjeta")
                         .HasColumnType("int");
 
-                    b.Property<int>("brojPrijava")
+                    b.Property<int>("BrojPrijava")
                         .HasColumnType("int");
 
-                    b.Property<int>("brojUcesca")
+                    b.Property<int>("BrojUcesca")
                         .HasColumnType("int");
 
-                    b.Property<int>("brojUspjesnihSaradnji")
+                    b.Property<int>("BrojUspjesnihSaradnji")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DjelatnikIDKorisnika")
                         .HasColumnType("int");
 
                     b.HasKey("IDDjelatnika");
+
+                    b.HasIndex("DjelatnikIDKorisnika");
 
                     b.ToTable("Statistika");
                 });
@@ -588,10 +618,11 @@ namespace SanZan.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("djelatnost")
+                    b.Property<int>("Djelatnost")
                         .HasColumnType("int");
 
-                    b.Property<string>("naziv")
+                    b.Property<string>("Naziv")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IDTaga");
@@ -606,19 +637,23 @@ namespace SanZan.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Djelatnost")
+                        .HasColumnType("int");
+
                     b.Property<int>("IDKlijenta")
                         .HasColumnType("int");
 
-                    b.Property<int>("djelatnost")
+                    b.Property<int?>("IDLokacija")
                         .HasColumnType("int");
 
-                    b.Property<int>("lokacija")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("vrijemeZahtjeva")
+                    b.Property<DateTime>("VrijemeZahtjeva")
                         .HasColumnType("datetime2");
 
                     b.HasKey("IDZahtjeva");
+
+                    b.HasIndex("IDKlijenta");
+
+                    b.HasIndex("IDLokacija");
 
                     b.ToTable("Zahtjev");
                 });
@@ -715,23 +750,118 @@ namespace SanZan.Data.Migrations
                     b.Navigation("Tag");
                 });
 
+            modelBuilder.Entity("SanZan.Models.Korisnik", b =>
+                {
+                    b.HasOne("SanZan.Models.Lokacija", "Lokacija")
+                        .WithMany()
+                        .HasForeignKey("LokacijaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Lokacija");
+                });
+
             modelBuilder.Entity("SanZan.Models.ModeratorOglasi", b =>
                 {
                     b.HasOne("SanZan.Models.Korisnik", "Korisnik")
                         .WithMany()
-                        .HasForeignKey("IDModeratora")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IDModeratora");
 
                     b.HasOne("SanZan.Models.Oglas", "Oglas")
                         .WithMany()
-                        .HasForeignKey("IDOglasa")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IDOglasa");
 
                     b.Navigation("Korisnik");
 
                     b.Navigation("Oglas");
+                });
+
+            modelBuilder.Entity("SanZan.Models.Oglas", b =>
+                {
+                    b.HasOne("SanZan.Models.Lokacija", "Lokacija")
+                        .WithMany()
+                        .HasForeignKey("LokacijaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Lokacija");
+                });
+
+            modelBuilder.Entity("SanZan.Models.Poruka", b =>
+                {
+                    b.HasOne("SanZan.Models.Korisnik", "Posiljaoc")
+                        .WithMany()
+                        .HasForeignKey("PosiljaocIDKorisnika");
+
+                    b.HasOne("SanZan.Models.Korisnik", "Primaoc")
+                        .WithMany()
+                        .HasForeignKey("PrimaocIDKorisnika");
+
+                    b.Navigation("Posiljaoc");
+
+                    b.Navigation("Primaoc");
+                });
+
+            modelBuilder.Entity("SanZan.Models.Prijava", b =>
+                {
+                    b.HasOne("SanZan.Models.Korisnik", "Administrator")
+                        .WithMany()
+                        .HasForeignKey("AdministratorIDKorisnika");
+
+                    b.HasOne("SanZan.Models.Korisnik", "Prijavljeni")
+                        .WithMany()
+                        .HasForeignKey("PrijavljeniIDKorisnika");
+
+                    b.HasOne("SanZan.Models.Korisnik", "Zalbenik")
+                        .WithMany()
+                        .HasForeignKey("ZalbenikIDKorisnika");
+
+                    b.Navigation("Administrator");
+
+                    b.Navigation("Prijavljeni");
+
+                    b.Navigation("Zalbenik");
+                });
+
+            modelBuilder.Entity("SanZan.Models.Recenzija", b =>
+                {
+                    b.HasOne("SanZan.Models.Korisnik", "Djelatnik")
+                        .WithMany()
+                        .HasForeignKey("DjelatnikIDKorisnika");
+
+                    b.HasOne("SanZan.Models.Korisnik", "Recenzent")
+                        .WithMany()
+                        .HasForeignKey("RecenzentIDKorisnika");
+
+                    b.Navigation("Djelatnik");
+
+                    b.Navigation("Recenzent");
+                });
+
+            modelBuilder.Entity("SanZan.Models.Statistika", b =>
+                {
+                    b.HasOne("SanZan.Models.Korisnik", "Djelatnik")
+                        .WithMany()
+                        .HasForeignKey("DjelatnikIDKorisnika");
+
+                    b.Navigation("Djelatnik");
+                });
+
+            modelBuilder.Entity("SanZan.Models.Zahtjev", b =>
+                {
+                    b.HasOne("SanZan.Models.Korisnik", "Korisnik")
+                        .WithMany()
+                        .HasForeignKey("IDKlijenta")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SanZan.Models.Lokacija", "Lokacija")
+                        .WithMany()
+                        .HasForeignKey("IDLokacija");
+
+                    b.Navigation("Korisnik");
+
+                    b.Navigation("Lokacija");
                 });
 
             modelBuilder.Entity("SanZan.Models.ZahtjevTagovi", b =>

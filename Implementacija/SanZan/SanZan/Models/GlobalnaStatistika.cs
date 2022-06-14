@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SanZan.Models
 {
+    [NotMapped]
     public sealed class GlobalnaStatistika
     {
         private static GlobalnaStatistika instance = new GlobalnaStatistika();

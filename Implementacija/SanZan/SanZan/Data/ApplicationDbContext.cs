@@ -16,11 +16,10 @@ namespace SanZan.Data
 
         public DbSet<BezgotovinskaUplata> BezgotovinskaUplata { get; set; }
         public DbSet<DjelatnikTagovi> DjelatnikTagovi { get; set; }
-        public DbSet<GlobalnaStatistika> GlobalnaStatistka { get; set; }
         public DbSet<GotovinskaUplata> GotovinskaUplata { get; set; }
         public DbSet<InfoPitanje> InfoPitanje { get; set; }
         public DbSet<Kartica> Kartica { get; set; }
-        public DbSet<KonkretniStatus> KonkretniStatuse { get; set; }
+        public DbSet<KonkretniStatus> KonkretniStatus { get; set; }
         public DbSet<Korisnik> Korisnik { get; set; }
         public DbSet<Lokacija> Lokacija { get; set; }
         public DbSet<ModeratorOglasi> ModeratorOglasi { get; set; }
@@ -35,9 +34,9 @@ namespace SanZan.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<BezgotovinskaUplata>().ToTable("BezgotovinskaUplate");
             modelBuilder.Entity<DjelatnikTagovi>().ToTable("DjelatnikTagovi");
-            modelBuilder.Entity<GlobalnaStatistika>().ToTable("GlobalnaStatistika");
             modelBuilder.Entity<GotovinskaUplata>().ToTable("GotovinskaUplata");
             modelBuilder.Entity<InfoPitanje>().ToTable("InfoPitanje");
             modelBuilder.Entity<Kartica>().ToTable("Kartica");
